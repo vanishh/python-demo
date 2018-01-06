@@ -26,6 +26,8 @@ def move(x, y, step, angle=0):
 x, y = move(100, 100, 60, math.pi / 6)
 print(x, y)
 
+
+# 位置参数举例
 def power(x, n):
     result = 1
     while n > 0:
@@ -35,4 +37,45 @@ def power(x, n):
 
 result1 = power(10, 3)
 
-        
+# 默认参数
+# 定义函数时可以提供默认参数值
+# 调用函数时，如果有默认参数，可以不用提供参数
+
+def enroll(name, gender, age=6, city="beijing"):
+    print('name', name)
+    print('gender', gender)
+    print('age', age)
+    print('city', city)
+    
+enroll("geyang", "man")
+enroll("ligang", "women", city="tianjing") # 提供参数位置应对应 若位置不对应，调用时应写上参数名=value
+
+# 默认参数 指向可变对象
+# 当调用提供参数时，没有问题； 不提供参数，结果累加？？
+# 牢记：默认参数必须指向不可变对象
+
+# 'NoneType' object has no attribute 'append'
+def add_end(list1=None):
+    if list1 is None:
+        list1 = []
+    list1.append("END")
+    return list1
+
+print(add_end(["geyang"]))
+
+# 可变参数 
+# 定义的函数，传入的参数的个数是不确定的，可变的
+def calc(*numbers):
+    sum = 0;
+    for element in numbers:
+        sum = sum + element ** 2
+    return sum
+# 调用方式1：可变参数在函数调用时自动组装为一个tuple
+print(calc(1,2,3))
+
+# 调用方式2：
+listTwo = [1, 2, 3]
+print(calc(*listTwo))
+
+# 关键字参数
+# 
