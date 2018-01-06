@@ -27,7 +27,7 @@ x, y = move(100, 100, 60, math.pi / 6)
 print(x, y)
 
 
-# 位置参数举例
+# 位置参数举例 
 def power(x, n):
     result = 1
     while n > 0:
@@ -65,17 +65,52 @@ print(add_end(["geyang"]))
 
 # 可变参数 
 # 定义的函数，传入的参数的个数是不确定的，可变的
-def calc(*numbers):
+# 可变参数在函数调用时自动组装为一个tuple
+def addAll(*numbers):
+    result = 0
+    for element in numbers:
+        result += element **2
+    return result
+
+# 举例：位置参数、可变参数、多个返回值
+def calc(name, *numbers):
     sum = 0;
+    name = "change"
     for element in numbers:
         sum = sum + element ** 2
-    return sum
-# 调用方式1：可变参数在函数调用时自动组装为一个tuple
-print(calc(1,2,3))
+    return name, sum
+# 调用方式1：传入可变的参数个数
+resultAsName, resultAsNumbers = calc("geyang", 1, 2, 3)
 
-# 调用方式2：
+print("name:", resultAsName, "sum:", resultAsNumbers)
+
+# 调用方式2：传入一个list 
 listTwo = [1, 2, 3]
-print(calc(*listTwo))
+print(calc("nihao", *listTwo))
 
 # 关键字参数
-# 
+# 关键字参数允许你传入可变的含参数名的参数 
+# 关键字参数在函数内自动组装为一个dict
+
+def person(**kw):
+
+    # 我们可以在函数内部查看传了哪些参数
+    if "city" in kw:
+        print("city:", kw["city"])
+    elif "job" in kw:
+        print("job:", kw["job"])
+    else:
+        print("other:", kw)
+        
+person(job = "engineer", language = "java")
+
+
+#person(language = "java")
+# 命名关键字参数
+#如果要限制关键字参数的名字， 需要使用命名关键字参数
+# 调用命名关键字参数时，参数命名一致，位置一致，个数一致
+def person(*, city, job):
+    print(city)
+    print(job)
+
+person(city="geyang", job="engineer")
