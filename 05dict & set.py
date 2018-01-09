@@ -9,12 +9,27 @@ This is a temporary script file.
 # key 唯一对应一个 value(1 对 1)
 # key 必须为不可变对象，如字符串等
 dict1 = {"geyang": 100, "bob": 99, "gavin": 95}
+
+# 访问字典
 print(dict1["geyang"])
-#print(dict1["nihao"]) #KeyError: 'nihao'
+
+# 添加字典对
 dict1["nihao"] = 60 # 添加一个key-value
 dict1["nihao"] = 80
+
+# 删除字典对
+# value = dict1.pop(key)
 result = dict1.pop("bob")
 
+# 字典函数
+# key in dict
+if "geyang" in dict1:
+    print(dict1["geyang"])
+    print(dict1.get("geyang"))
+
+keys = dict1.keys()
+
+values = dict1.values()
 # set 无序、不重复的集合
 # set 底层原理与dict 相同，没有value，不能存入可变对象
 test = set([1,2,3])
