@@ -38,6 +38,9 @@ list1.sort()
 
 list2 = list1.copy() 
 
+# 列表生成式
+listGen = [x * x for x in range(1, 10)]
+listGen1 = [x * x for x in range(1, 10) if x % 2 == 0]
 # 演示使用tuple
 tuple1 = ("geyang", "nihao", ["zero", "one"])
 

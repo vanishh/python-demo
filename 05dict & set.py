@@ -21,7 +21,7 @@ dict1["nihao"] = 80
 # value = dict1.pop(key)
 result = dict1.pop("bob")
 
-# 字典函数
+# dict常用函数
 # key in dict
 if "geyang" in dict1:
     print(dict1["geyang"])
@@ -30,6 +30,10 @@ if "geyang" in dict1:
 keys = dict1.keys()
 
 values = dict1.values()
+
+for k, v in dict1.items():
+    print(k, '=', v)
+    
 # set 无序、不重复的集合
 # set 底层原理与dict 相同，没有value，不能存入可变对象
 test = set([1,2,3])
