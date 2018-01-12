@@ -1,2 +1,3 @@
 # python-demo
-my python demo files
+Python Repository
+this is a python repository 
