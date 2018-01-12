@@ -48,7 +48,7 @@ def enroll(name, gender, age=6, city="beijing"):
     print('city', city)
     
 enroll("geyang", "man")
-enroll("ligang", "women", city="tianjing") # 提供参数位置应对应 若位置不对应，调用时应写上参数名=value
+enroll("ligang", "women", city="tianjing", age = 15) # 提供参数位置应对应 若位置不对应，调用时应写上参数名=value
 
 # 默认参数 指向可变对象
 # 当调用提供参数时，没有问题； 不提供参数，结果累加？？

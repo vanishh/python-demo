@@ -64,3 +64,12 @@ def normalize(nameList):
 
 normalizeList = list(normalize(list1))
 
+# 练习：编写一个prod()函数，可以接收list并利用reduce求乘积
+listProd = [1, 2, 3, 4]
+def prod(paramList):
+    def mutiply(x, y):
+        return x * y
+    return reduce(mutiply, paramList)
+
+mutiplyResult = prod(listProd)
+
