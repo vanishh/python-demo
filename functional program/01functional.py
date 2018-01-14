@@ -34,3 +34,20 @@ def add_new(x, y, f):
 
 result = add_new(5, -6, abs)
 print(result)
+
+# 高阶函数可以把函数作为结果值返回
+# 我们在函数中又定义了函数sum，内部函数可以引用外部函数的参数和局部变量
+def calc_sum(*args):
+    def sum():
+        ax = 0
+        for n in args:
+            ax = ax + n
+        return ax
+    return sum
+
+funcResult = calc_sum(1, 2, 3, 4)
+funcResult2 = calc_sum(1, 2, 3, 4)
+
+print(funcResult == funcResult2) # 每次返回一个新函数
+
+# 闭包的概念？？
