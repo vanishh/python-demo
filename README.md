@@ -1,2 +1,2 @@
-# python-demo
-my python demo files
+# Python Repository
+This is a python repository for beginners.
