@@ -72,7 +72,7 @@ def addAll(*numbers):
         result += element **2
     return result
 
-# 举例：位置参数、可变参数、多个返回值
+# 练习：位置参数、可变参数、多个返回值
 def calc(name, *numbers):
     sum = 0;
     name = "change"
