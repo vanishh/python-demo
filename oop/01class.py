@@ -18,13 +18,28 @@ class Student(object):
         self.name = name
         self.score = score
         
-    # 类中的函数，第一个参数永远是self，调用时，不用传递该参数，其余与普通函数相同
+    # 类中的函数，第一个参数永远是实例变量self，
+    # 调用时，不用传递该参数，其余与普通函数相同
     def print_score(self):
         print("%s: %s" %(self.name, self.score))
-        
-geyang = Student("geyang", 25)
+    
+    def get_grade(self):
+        print("self parameter! %s" % self)
+        if(self.score >= 90):
+            self.grade = "excellent"
+        elif(self.score >= 80):
+            self.grade = "good"
+        elif(self.score >= 60):
+            self.grade = "medium"
+        else:
+            self.grade = "not pass"
+        print(self.grade)
+
+geyang = Student("geyang", 50)
 print(geyang.name)
 geyang.print_score()
 # 可以动态的给对象绑定属性
 geyang.address = "shanghai"
 print(geyang.address)
+
+geyang.get_grade()
