@@ -8,11 +8,11 @@ This is a temporary script file.
 # dict key-value 数据类型
 # key 唯一对应一个 value(1 对 1)
 # key 必须为不可变对象，如字符串等
-dict1 = {"geyang": 100, "bob": 99, "gavin": 95}
+dict1 = {"geyang": 100, "bob": 99, "gavin": 95, 101:101}
 
 # 访问字典
 print(dict1["geyang"])
-
+print(dict1[100])
 # 添加字典对
 dict1["nihao"] = 60 # 添加一个key-value
 dict1["nihao"] = 80
@@ -33,7 +33,19 @@ values = dict1.values()
 
 for k, v in dict1.items():
     print(k, '=', v)
-    
+
+# 字典练习
+# 创建多个字典 放在列表中， 遍历列表 打印数据
+dog = {"type":"hasky", "master":"geyang"}
+cat = {"type":"bosi", "master":"geyang"}
+pets = [dog, cat]
+
+for element in pets:
+    if "type" in element:
+        print("type:%s" % element["type"])
+    if "master" in element:
+        print("master:%s" % element["master"])
+
 # set 无序、不重复的集合
 # set 底层原理与dict 相同，没有value，不能存入可变对象
 test = set([1,2,3])
