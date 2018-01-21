@@ -26,7 +26,9 @@ result = dict1.pop("bob")
 if "geyang" in dict1:
     print(dict1["geyang"])
     print(dict1.get("geyang"))
-
+else:
+    print("geyang is not in dict1")
+    
 keys = dict1.keys()
 
 values = dict1.values()
@@ -59,6 +61,8 @@ union = test | test2
 
 #交集
 common = test & test2
+
+
 
 # 不可变对象
 list1 = [1,2] # 可变对象类型  TypeError: unhashable type: 'list'
