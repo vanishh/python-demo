@@ -10,16 +10,14 @@ Created on Tue Jan 16 00:32:13 2018
 # object类，所有类最终都会继承该类
 class Student(object):
     
-    # 通过定义一个特殊的__init__方法，在创建实例的时候，
-    # 把name、score 等属性绑定上去
-    # __init__第一个参数永远是self:表示指向创建的实例本身
-    # 但self不需要传，python会自己把self传进去
+    # 通过定义一个特殊的__init__()方法，在创建实例的时候，把name、score 等属性绑定上去
     def __init__(self, name, score):
         self.name = name
         self.score = score
         
-    # 类中的函数，第一个参数永远是实例变量self，
-    # 调用时，不用传递该参数，其余与普通函数相同
+    # 类中的函数，第一个参数永远是实例变量self，表示指向创建的实例本身
+    # 调用时，不用传递该self参数，其余与普通函数相同
+    # self 不是python关键字，也可以使用其他参数名代替self，推荐使用self
     def print_score(self):
         print("%s: %s" %(self.name, self.score))
     
@@ -43,3 +41,31 @@ geyang.address = "shanghai"
 print(geyang.address)
 
 geyang.get_grade()
+
+class Animal():
+    
+    name = "geyang"
+    count = 0
+    # python 中不支持函数的重载，类中函数名相同的函数只有一个
+    def __init__(self):
+        print("constructor function")
+        Animal.count += 1
+        
+    def print_fun(self):
+        print("print")
+
+# 创建对象时，首先调用构造函数
+animal = Animal()
+print(animal.count)
+animal1 = Animal()
+print(animal1.count)
+# 调用成员函数时，必须在定义成员函数时提供一个参数；没有定义参数，也可以执行通过
+animal.print_fun()
+print(animal.name)
+
+class Dog(Animal):
+    
+    def __init__(self):
+        print("sub constructor function!")
+        
+dog = Dog()
