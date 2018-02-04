@@ -37,6 +37,11 @@ class Student(object):
 geyang = Student("geyang", 50)
 print(geyang.name)
 geyang.print_score()
+
+# 写了__init__函数，创建对象，必须传递参数
+geyang1 = Student("qingqing", 25)
+print(geyang1.name)
+
 # 可以动态的给对象绑定属性
 geyang.address = "shanghai"
 print(geyang.address)
@@ -45,21 +50,27 @@ geyang.get_grade()
 
 class Animal():
     
-    name = "geyang"
+    name = 'animal'
     count = 0
     # python 中不支持函数的重载，类中函数名相同的函数只有一个
-    def __init__(self):
+    def __init__(self, name):
         print("constructor function")
+        Animal.name = name  # 访问类属性，修改类属性
         Animal.count += 1
         
     def print_fun(self):
         print("print")
 
 # 创建对象时，首先调用构造函数
-animal = Animal()
+animal = Animal("geyang")
+print(animal.name)   # 访问类属性
+print(Animal.name)   # 访问类属性
 print(animal.count)
-animal1 = Animal()
-print(animal1.count)
+
+animal1 = Animal("qingqing")
+print(animal1.name)
+print(animal.count)
+
 # 调用成员函数时，必须在定义成员函数时提供一个参数；没有定义参数，也可以执行通过
 animal.print_fun()
 print(animal.name)
