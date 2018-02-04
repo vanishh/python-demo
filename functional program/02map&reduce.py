@@ -9,23 +9,34 @@ Created on Fri Jan 12 22:26:10 2018
 def f(x):
     return x * x
 
-# map(函数名，Iterable对象) 
+# map(函数名，Iterable对象[, Iterable对象]..) 
 # map函数，使函数作用在Iterable对象上，返回Iterator
+
+# 例1
 r = map(f, list(range(9)))
+print(r)  # <map object at 0x0BD1DAF0>
 print(list(r))
 
-# 例：把list所有的数字转换为字符串
+# 例2：把list所有的数字转换为字符串
 r1 = map(str, list(range(9)))
 print(list(r1))
 
+# 例3 divide需要两个参数，所以，map函数，需要两个Iterable对象，作为divide的参数
+def divide(x, y):
+    return x / y
+
+list1 = [2, 3, 4]
+list2 = [1, 1, 1]
+result = map(divide, list1, list2)
+print(list(result))
 
 
-# reduce(必须接收连个参数的函数，Iterable对象)：函数的结果继续和序列的下一个元素做函数运算
+# reduce(必须接收两个参数的函数，Iterable对象)：函数的结果继续和序列的下一个元素做函数运算
 from functools import reduce
 def add(x, y):
     return x + y
 
-result = reduce(add, list(range(6)))
+result = reduce(add, list(range(1,6)))
 print(result)
 
 #

@@ -48,6 +48,8 @@ def calc_sum(*args):
 funcResult = calc_sum(1, 2, 3, 4)
 funcResult2 = calc_sum(1, 2, 3, 4)
 
-print(funcResult == funcResult2) # 每次返回一个新函数
+print(funcResult == funcResult2) # False 每次返回一个新函数
+print(funcResult) # <function calc_sum.<locals>.sum at 0x0BD088A0>
+print(funcResult())
 
 # 闭包的概念？？
