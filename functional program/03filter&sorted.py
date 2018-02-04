@@ -20,10 +20,16 @@ resultList2 = list(filter(isEven, tuple(range(9))))
 #resultList3 = list(filter(isEven, "12345")) # 只能作用于序列
 
 # sorted() 高阶函数 用于排序 可以传递映射函数
+# sorted函数不修改原序列，返回一个新排序序列
 sample = [10, 7, 20, 50, 1, -11, -1]
 sortedResult = sorted(sample)
 sortedResult1 = sorted(sample, reverse = True)
 
+print(sample) # 不修改原序列
+print(sortedResult) # 返回一个新序列
+
 # 调用方式2：按照某个函数作用后的结果排序
 keySortedResult = sorted(sample, key = abs)
+print(keySortedResult)
+
 
