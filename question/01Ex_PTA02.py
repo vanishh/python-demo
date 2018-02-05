@@ -25,3 +25,17 @@ def stringCount(inputStr):
 
 inputStr = input()
 stringCount(inputStr)
+
+# 习题6-2 使用函数求特殊a串数列和（20 分）
+# 给定两个均不超过9的正整数a和n，要求编写函数求a+aa+aaa++⋯+aa⋯a（n个a）之和。
+# 其中函数fn须返回的是n个a组成的数字
+def fn(a, n):
+    result = ''
+    if (a > 9 or a < 0) or (n > 9 or n < 0):
+        return
+    else:
+        for index in range(1, n+1):
+            # n = 3  aaa
+            result += str(a)
+        return int(result)
+#print(fn(3, 3))
