@@ -21,15 +21,6 @@ class Bank(object):
     
 class User(object):
     
-    # 卡号
-    __bankCardNumber = ""
-    # 密码
-    __password = ""
-    # 用户名
-    __userName = ""
-    # 余额
-    __balance = 0
-    
     def __init__(self, cardNumber, password, userName, balance):
         self.__bankCardNumber = cardNumber
         self.__password = password
@@ -60,5 +51,40 @@ class User(object):
         return self.__balance
 
 user1 = User("1234", "123", "geyang", 1000)
+#print(user1.__balance)  # 访问不到，balance为私有属性
 print(user1.getBalance())
-balance = user1.queryMoney("1234", "123", -50)
+balance = user1.queryMoney("1234", "123", 50)
+
+# 单元测试
+# 引入Python自带的unittest模块
+import unittest
+
+# 单元测试类继承自unittest的TestCase类
+class TestUser(unittest.TestCase):
+    
+    # 在单元测试中编写两个特殊的方法
+    # 在每个测试用例之前运行该方法
+    def setUp(self):
+        print("set up")
+        
+    # 在每个测试用例之后运行该方法
+    def tearDown(self):
+        print("tear down")
+        
+    # 单元测试用例
+    def test_init(self):
+        user = User("1234","123", "geyang", 1000)
+        self.assertEqual(user.getBalance(), 1000)
+        self.assertEqual(user.getUserName(), "geyang")
+        self.assertIsNotNone(user.getPassword())
+        self.assertTrue(user.getBankCardNumber() == "1234")
+        
+    def test_query_money(self):
+        user = User("1234","123", "geyang", 1000)
+        bankCardNumber = "1234"
+        password = "123"
+        self.assertEqual(user.queryMoney(bankCardNumber, password, 100), 900)
+
+# 运行单元测试
+if __name__ == "__main__":
+    unittest.main()
