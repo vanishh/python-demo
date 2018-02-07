@@ -10,7 +10,7 @@ Created on Thu Jan 11 23:55:07 2018
 # 本文件叫01hello的模块（
 # 模块命名：模块名要遵循python的命名规范、不要与系统模块名冲突
 
-# 包
+# 包 用于管理Python模块的命名空间的形式
 # 选择顶层包存放模块，每个包目录下一定会有__init__.py文件（可以是空文件，也可以有代码）
 # __init__.py本身也是一个模块，模块名为包名
 
@@ -23,10 +23,15 @@ __author__ = "Gavin Ge"
 _userName = ""
 _age = 15
 
+# 使用import引入模块
+# import modulename 
+# import modulename as anothername
 import sys
 
 # 正常的函数名，或者变量名是public权限
 def test():
+    
+    # 调用模块中的函数或者属性时，必须加上模块名
     args = sys.argv
     if len(args) == 1:
         print("hello world")
@@ -51,3 +56,4 @@ def greeting(name):
 if __name__ == '__main__':
     test()
     greetResult = greeting("geyang")
+    print(greetResult)
