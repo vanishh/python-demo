@@ -88,6 +88,9 @@ def printPN(m, n):
                 
 printPN(1, 30)
 
+# 小知识点：
+# 可以使用切片来截取子字符串
+
 # 习题6-4 使用函数输出指定范围内的Fibonacci数（20 分）
 # 本题要求实现一个计算Fibonacci数的简单函数，并利用其实现另一个函数，
 # 输出两正整数m和n（0<m≤n≤10000）之间的所有Fibonacci数。所谓Fibonacci数列就是满足任一项数字是前两项的和（最开始两项均定义为1）的数列。
@@ -192,3 +195,30 @@ floatNumber = float(input())
 intPart, floatPart = splitFloat(floatNumber)
 print("The integer part is %d" % intPart)
 print("The fractional part is %s" % floatPart)
+
+#习题8-6 删除字符（20 分）
+#本题要求实现一个删除字符串中的指定字符的简单函数。
+def delChar(inputStr, char):
+    count = 0
+    inputStr = list(inputStr) 
+    print(inputStr)
+    for index in inputStr:
+        if char == index:
+            del(inputStr[count]) # del()函数，直接删除元素
+            continue
+        count += 1
+    outputStr = ''
+    for index in inputStr:
+        outputStr += index
+    return outputStr
+
+char = input()
+inputStr = input()
+print(delChar(inputStr, char))
+
+# 小知识点：
+# str 转 list: list(str)
+# list 转 str: ''.join(list)
+# del(list[index]):删除list指点元素
+
+list1 = range(5)
