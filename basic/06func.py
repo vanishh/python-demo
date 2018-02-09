@@ -72,6 +72,7 @@ def addAll(*numbers):
         result += element **2
     return result
 
+print(addAll(1, 2, 3))
 # 练习：位置参数、可变参数、多个返回值
 def calc(name, *numbers):
     sum = 0;
@@ -80,9 +81,9 @@ def calc(name, *numbers):
         sum = sum + element ** 2
     return name, sum
 # 调用方式1：传入可变的参数个数
-resultAsName, resultAsNumbers = calc("geyang", 1, 2, 3)
+resultAsName, resultAsSum = calc("geyang", 1, 2, 3)
 
-print("name:", resultAsName, "sum:", resultAsNumbers)
+print("name:", resultAsName, "sum:", resultAsSum)
 
 # 调用方式2：传入一个list 
 listTwo = [1, 2, 3]

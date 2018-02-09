@@ -168,3 +168,27 @@ def reverse(number):
     return int(result)
 
 print(reverse(-12340))
+
+
+#练习8-8 移动字母（10 分）
+#本题要求编写函数，将输入字符串的前3个字符移到最后。
+def shift(inputStr):
+    if len(inputStr) < 3:
+        return
+    return inputStr[3:] + inputStr[:3]
+
+inputStr = input()
+print(shift(inputStr))
+
+#习题8-1 拆分实数的整数与小数部分（15 分）
+#本题要求实现一个拆分实数的整数与小数部分的简单函数
+import math
+def splitFloat(floatNumber):
+    intPart = math.floor(floatNumber)
+    floatPart = floatNumber - intPart
+    return intPart, floatPart
+
+floatNumber = float(input())
+intPart, floatPart = splitFloat(floatNumber)
+print("The integer part is %d" % intPart)
+print("The fractional part is %s" % floatPart)
