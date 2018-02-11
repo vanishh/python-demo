@@ -196,6 +196,16 @@ intPart, floatPart = splitFloat(floatNumber)
 print("The integer part is %d" % intPart)
 print("The fractional part is %s" % floatPart)
 
+
+#习题8-4 报数（20 分）
+#报数游戏是这样的：有n个人围成一圈，按顺序从1到n编好号。从第一个人开始报数，报到m（<n）的人退出圈子；下一个人从1开始报数，报到m的人退出圈子。如此下去，直到留下最后一个人。
+#
+#本题要求编写函数，给出每个人的退出顺序编号。
+# n为初始人数，m为游戏规定的退出位次，退出顺序编号存在out中
+def countOff(n, m, out):
+    
+
+
 #习题8-6 删除字符（20 分）
 #本题要求实现一个删除字符串中的指定字符的简单函数。
 def delChar(inputStr, char):
