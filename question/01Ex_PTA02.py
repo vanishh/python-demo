@@ -262,11 +262,17 @@ print(palindrmone("tt"))
 print(palindrmone("tst"))
 print(palindrmone("test"))
 
-def palindrmone(inputStr):
+# 方法2：
+def palindrmone2(inputStr):
     for index in range(len(inputStr) // 2):
         if inputStr[index] != inputStr[-(index + 1)]:
             return False
     return True
+
+print(palindrmone2("tt"))
+print(palindrmone2("tet"))
+print(palindrmone2("teet"))
+print(palindrmone2("teet3"))
             
 # 小知识点：
 # 索引
@@ -282,4 +288,5 @@ print("test"[1:-1]) # 去第一个和最后一个
 
 list(range(1,4)) # range(1,4) [1,4)  左闭右开
 
-for index in range(0)
+for index in range(0):
+    print(index) # 什么也没有打印
