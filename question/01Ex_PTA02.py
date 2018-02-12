@@ -203,8 +203,22 @@ print("The fractional part is %s" % floatPart)
 #本题要求编写函数，给出每个人的退出顺序编号。
 # n为初始人数，m为游戏规定的退出位次，退出顺序编号存在out中
 def countOff(n, m, out):
-    
-
+    out = []
+    for index in range(n):
+        out.append(0)
+#    print(out)
+    location = 0
+    # 遍历序号，给元素表序号
+    for index in range(1, n+1):
+        # 数m个，标一个序号
+        number = 1
+        while number < m:
+            if out[location] == 0:
+                number += 1
+            location = (location + 1) % n
+        out[location] = index
+    print(out)
+countOff(11, 3, [])
 
 #习题8-6 删除字符（20 分）
 #本题要求实现一个删除字符串中的指定字符的简单函数。
@@ -231,4 +245,41 @@ print(delChar(inputStr, char))
 # list 转 str: ''.join(list)
 # del(list[index]):删除list指点元素
 
-list1 = range(5)
+#习题8-8 判断回文字符串（20 分）
+#本题要求编写函数，判断给定的一串字符是否为“回文”。所谓“回文”是指顺读和倒读都一样的字符串。如“XYZYX”和“xyzzyx”都是回文。
+# 编写函数，判断输入的字符串是否是回文。是返回true
+def palindrmone(inputStr):
+    if len(inputStr) == 1 or len(inputStr) == 0 or inputStr == None:
+        return True
+    else:
+        if inputStr[0] == inputStr[len(inputStr)-1]:
+            return palindrmone(inputStr[1:-1])
+        else:
+            return False
+
+print(palindrmone("t"))
+print(palindrmone("tt"))
+print(palindrmone("tst"))
+print(palindrmone("test"))
+
+def palindrmone(inputStr):
+    for index in range(len(inputStr) // 2):
+        if inputStr[index] != inputStr[-(index + 1)]:
+            return False
+    return True
+            
+# 小知识点：
+# 索引
+print("test"[-1]) # -1 表示最后一个
+# 切片
+print("test"[:])   # 表示从头到尾
+print("test"[0:])  # 表示从0开始，到尾
+print("test"[1:3]) # [1, 3]表示[1, 3) 左闭右开
+print("test"[:-1]) # -1 表示倒数第一个，[0，倒数第一个)
+print("test"[:-2]) # -2 表示倒数第2个
+print("test"[1:-1]) # 去第一个和最后一个
+#print("te"[1:-1])
+
+list(range(1,4)) # range(1,4) [1,4)  左闭右开
+
+for index in range(0)
