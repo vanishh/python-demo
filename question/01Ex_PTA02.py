@@ -290,3 +290,15 @@ list(range(1,4)) # range(1,4) [1,4)  左闭右开
 
 for index in range(0):
     print(index) # 什么也没有打印
+    
+
+#习题9-2 计算两个复数之积（15 分）
+#本题要求实现一个计算复数之积的简单函数。
+class Complex(object):
+    # 定义复数的属性
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
+
+def mutiply(complexX, complexY):
+    pass
