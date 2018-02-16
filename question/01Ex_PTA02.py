@@ -299,6 +299,25 @@ class Complex(object):
     def __init__(self, real, imag):
         self.real = real
         self.imag = imag
+        print("%d+(%d)i" % (self.real, self.imag))
+        
+    def add(self, anotherComplex):
+        self.real += anotherComplex.real
+        self.imag += anotherComplex.imag
+    
+    def minus(self, anotherComplex):
+        self.real -= anotherComplex.real
+        self.imag -= anotherComplex.imag
 
-def mutiply(complexX, complexY):
-    pass
+    def mutiply(self, anotherComplex):
+        self.real = (self.real * anotherComplex.real) - (self.imag * anotherComplex.imag)
+        self.imag = (self.imag * anotherComplex.real) + (self.real * anotherComplex.imag)
+
+    def toString(self):
+        print("%d+(%d)i" % (self.real, self.imag))
+        
+complex1 = Complex(3,4)
+complex2 = Complex(5,6)
+#complex1.add(complex2)
+complex1.mutiply(complex2) # 程序有bug，复数乘积出错
+print(complex1.toString())
