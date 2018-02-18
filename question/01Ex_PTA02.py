@@ -420,4 +420,85 @@ a = int(input())
 result = fact(a)
 print("fact(%d) = %d" % (a, result))
 print(factsum(a))
+
+#习题10-3 递归实现指数函数（15 分）
+#本题要求实现一个计算x**​n（n≥1）的函数
+#函数calc_pow应返回x的n次幂的值。建议用递归实现。题目保证结果在双精度范围内。
+def calc_pow(x, n):
+    if n == 0:
+        return 1
+    elif n == 1:
+        return x
+    else:
+        return x * calc_pow(x, n - 1)
     
+x = float(input())
+n = int(input())
+
+print(calc_pow(x, n))
+
+#习题10-4 递归求简单交错幂级数的部分和（15 分）
+#本题要求实现一个函数，计算下列简单交错幂级数的部分和：
+def fnx(x, n):
+    if n <= 0:
+        return
+    if n == 1:
+        return x
+    else:
+        return fnx(x, n - 1) + ((-1) ** (n - 1)) * (x ** n)
+
+x = float(input())
+n = int(input())
+
+print("%.2f" % fnx(x, n))
+
+#习题10-5 递归计算Ackermenn函数（15 分）
+#本题要求实现Ackermenn函数的计算，其函数定义如下：
+#其中m和n是用户传入的非负整数。函数Ack返回Ackermenn函数的相应值。题目保证输入输出都在长整型
+def ack(m, n):
+    if m < 0 and n < 0:
+        return
+    if m == 0:
+        return n + 1
+    elif n == 0 and m > 0:
+        return ack(m - 1, 1)
+    elif m > 0 and n > 0:
+        return ack(m - 1, ack(m, n - 1))
+print(ack(2, 3))
+
+#习题10-6 递归求Fabonacci数列（10 分）
+#本题要求实现求Fabonacci数列项的函数。Fabonacci数列的定义如下：
+def fabonacci(n):
+    if n == 1 or n == 2:
+        return 1
+    else:
+        return fabonacci(n - 2) + fabonacci(n - 1)
+    
+print(fabonacci(6))
+
+
+#习题10-7 十进制转换二进制（15 分）
+#本题要求实现一个函数，将正整数n转换为二进制后输出。
+#函数dectobin应在一行中打印出二进制的n。建议用递归实现。
+def dectobin(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return 
+
+def dectobin2(n):
+    list1 = []
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        while (n // 2) != 1:
+            list1.append(n % 2)
+            n = n // 2
+        list1.append(1)
+    return "".join(list1)
+
+print(dectobin2(9))
