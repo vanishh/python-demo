@@ -310,8 +310,10 @@ class Complex(object):
         self.imag -= anotherComplex.imag
 
     def mutiply(self, anotherComplex):
-        self.real = (self.real * anotherComplex.real) - (self.imag * anotherComplex.imag)
-        self.imag = (self.imag * anotherComplex.real) + (self.real * anotherComplex.imag)
+        realReuslt = (self.real * anotherComplex.real) - (self.imag * anotherComplex.imag)
+        imagResult = (self.imag * anotherComplex.real) + (self.real * anotherComplex.imag)
+        self.real = realReuslt
+        self.imag = imagResult
 
     def toString(self):
         print("%d+(%d)i" % (self.real, self.imag))
@@ -321,3 +323,78 @@ complex2 = Complex(5,6)
 #complex1.add(complex2)
 complex1.mutiply(complex2) # 程序有bug，复数乘积出错
 print(complex1.toString())
+
+#习题9-6 按等级统计学生成绩（20 分）
+#本题要求实现一个根据学生成绩设置其等级，并统计不及格人数的简单函数。
+#set_grade函数需要根据学生的成绩score设置其等级grade。
+#等级设置：85－100为A，70－84为B，60－69为C，0－59为D。同时，set_grade还需要返回不及格的人数。
+class Student(object):
+    
+    def __init__(self, num, name, score, grade):
+        self.num = num
+        self.name = name
+        self.score = score
+        self.grade = grade
+        
+    def set_grade(self):
+        if self.score <= 100 and self.score >= 85:
+            self.grade = "A"
+        elif self.score >= 70:
+            self.grade = "B"
+        elif self.score >= 60:
+            self.grade = "C"
+        else:
+            self.grade = "D"
+        
+    def get_grade(self):
+        return self.grade
+    
+student1 = Student("300031", "geyang", 80, "N")
+student1.set_grade()
+print(student1.get_grade())
+
+#练习10-1 使用递归函数计算1到n之和（10 分）
+#本题要求实现一个用递归计算1+2+3+…+n的和的简单函数。
+# 非递归
+def sum(n):
+    if n <= 0:
+        return 0
+    sumResult = 0
+    for index in range(1,n + 1):
+        sumResult += index
+    return sumResult
+
+print(sum(10))
+
+# 递归
+def sumRecur(n):
+    if n <= 0:
+        return 0
+    if n == 1:
+        return 1
+    else:
+        return n + sumRecur(n - 1)
+
+print(sumRecur(10))
+
+#习题10-1 判断满足条件的三位数（15 分）
+#本题要求实现一个函数，统计给定区间内的三位数中有两位数字相同的完全平方数（如144、676）的个数。
+import math
+def search(n):
+    count = 0
+    for index in range(101, n+1):
+        low = index % 10
+        middle = index // 10 % 10
+        high = index // 100
+        if low == middle or middle == high or low == high:
+            s = str(math.sqrt(index))
+            s1 = s.split(".")
+            # split返回列表，元素类型为str
+            if s1[1] == '0':
+                   count += 1
+    return count
+
+print(search(500))
+
+# 小结：
+# str.split()返回列表，元素为str
