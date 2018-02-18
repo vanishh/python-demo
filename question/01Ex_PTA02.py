@@ -398,3 +398,26 @@ print(search(500))
 
 # 小结：
 # str.split()返回列表，元素为str
+
+#习题10-2 递归求阶乘和（15 分）
+#本题要求实现一个计算非负整数阶乘的简单函数，并利用该函数求 1!+2!+3!+...+n! 的值。
+#函数fact应返回n的阶乘，建议用递归实现。
+def fact(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * fact(n - 1)
+
+#函数factsum应返回 1!+2!+...+n! 的值。题目保证输入输出在双精度范围内。
+def factsum(n):
+    sumResult = 0
+    for index in range(1, n+1):
+        sumResult += fact(index)
+        
+    return sumResult
+
+a = int(input())
+result = fact(a)
+print("fact(%d) = %d" % (a, result))
+print(factsum(a))
+    
