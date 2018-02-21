@@ -498,7 +498,10 @@ def dectobin2(n):
         while (n // 2) != 1:
             list1.append(n % 2)
             n = n // 2
+        list1.append(0)
         list1.append(1)
-    return "".join(list1)
+    listTemp = [str(ele) for ele in list1].reverse()
+    print(listTemp)
+    return ''.join([])
 
-print(dectobin2(9))
+print(dectobin2(10))
