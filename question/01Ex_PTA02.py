@@ -480,13 +480,22 @@ print(fabonacci(6))
 #习题10-7 十进制转换二进制（15 分）
 #本题要求实现一个函数，将正整数n转换为二进制后输出。
 #函数dectobin应在一行中打印出二进制的n。建议用递归实现。
-def dectobin(n):
+def dectobin(list1, n):
+#    list1 = []
     if n == 0:
-        return 0
+        list1.append("0")
+        
     elif n == 1:
-        return 1
+        list1.append("1")
+        
     else:
-        return 
+        list1.append("%d" % (n % 2))
+        dectobin(list1, n // 2)
+    list1.reverse()
+    return "".join(list1)
+
+list1 = []
+print(dectobin(list1, 4))
 
 def dectobin2(n):
     list1 = []
@@ -500,8 +509,14 @@ def dectobin2(n):
             n = n // 2
         list1.append(0)
         list1.append(1)
-    listTemp = [str(ele) for ele in list1].reverse()
+        # reverse()方法对列表中元素进行反向排序，该方法没有返回值
+        list1.reverse() 
+    listTemp = [str(ele) for ele in list1]
     print(listTemp)
-    return ''.join([])
+    return ''.join(listTemp)
 
 print(dectobin2(10))
+
+# 小结：
+# list.reverse()方法，对原列表中元素进行反向排序，没有返回值
+
