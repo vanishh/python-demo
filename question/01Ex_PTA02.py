@@ -520,3 +520,26 @@ print(dectobin2(10))
 # 小结：
 # list.reverse()方法，对原列表中元素进行反向排序，没有返回值
 
+#习题10-8 递归实现顺序输出整数（15 分）
+#本题要求实现一个函数，对一个整数进行按位顺序输出。
+#函数printdigits应将n的每一位数字从高位到低位顺序打印出来，每位数字占一行。
+# 从低到高位打印
+def print_digits(n):
+    if n >= 0 and n <= 9:
+        print("%d\n" % n)
+    else:
+        print("%d\n" % (n % 10))
+        print_digits(n // 10 )
+        
+
+def length(n):
+    strNumber = str(n)
+    return len(strNumber)
+#print(length(44))
+
+print_digits(12345)
+
+# 注意:
+# len() 返回对象（字符串、列表、元组）的长度
+# 返回不了int类型的长度
+    
