@@ -543,3 +543,48 @@ print_digits(12345)
 # len() 返回对象（字符串、列表、元组）的长度
 # 返回不了int类型的长度
     
+#习题11-3 计算最长的字符串长度（15 分）
+#本题要求实现一个函数，用于计算有n个元素的指针数组s中最长的字符串的长度。
+# 返回字符串列表中，最长的字符串长度
+def max_len(s):
+    max_length = 0
+    for element in s:
+        element_count = 0
+        for index_i in element:
+            element_count += 1
+        if max_length < element_count:
+            max_length = element_count
+    return max_length
+
+s = []
+str1 = "geyang"
+str2 = "nihao"
+str3 = "ssssssss"
+s.append(str1)
+s.append(str2)
+s.append(str3)
+print(max_len(s))
+        
+
+#习题11-4 字符串的连接（15 分）
+#本题要求实现一个函数，将两个字符串连接起来
+#函数str_cat应将字符串t复制到字符串s的末端，并且返回字符串s的首地址。
+def str_cat(str1, str2):
+    if (not isinstance(str1, str)) or (not isinstance(str2, str)):
+        return
+    return str1 + str2
+
+print(str_cat("nihao", "geyang"))
+
+# isinstance(变量，类型) 返回布尔类型，如果变量是该类型，则返回True
+# isinstance(str1, str)
+# isinstance(123, int)
+# isinstance([], list)
+
+#习题11-5 指定位置输出字符串（20 分）
+#本题要求实现一个函数，对给定的一个字符串和两个字符，
+#打印出给定字符串中从与第一个字符匹配的位置开始到与第二个字符匹配的位置之间的所有字符。
+#函数match应打印s中从ch1到ch2之间的所有字符，并且返回ch1的地址。
+
+
+        
