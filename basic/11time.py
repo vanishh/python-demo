@@ -43,3 +43,42 @@ print(time4)
 # 将格式字符串转换为时间戳
 time_format = "Mon Feb 26 14:10:46 2018"
 print(time.mktime(time.strptime(time_format, "%a %b %d %H:%M:%S %Y")))
+
+
+# 考试题6：time操作
+# (1)将字符串的时间"2017-12-31 23:24:00" 转为时间戳和时间元组
+# (2)字符串格式更改
+# (3)获取两天前的时间
+# (4)通过time输出时间
+import time
+
+time_format = "2017-12-31 23:24:00"
+# (1)转为时间戳
+timestamp = time.mktime(time.strptime(time_format, "%Y-%m-%d %H:%M:%S"))
+print(timestamp)
+# 转为时间元组
+localtime = time.localtime(timestamp)
+print(localtime)
+
+# (2)格式修改
+time_format1 = time_format.replace("12", "10")
+time_format1 = time_format1.replace("31", "10")
+print(time_format1)
+
+
+timestamp = time.mktime(time.strptime(time_format1, "%Y-%m-%d %H:%M:%S"))
+localtime = time.localtime(timestamp)
+time1 = time.strftime("%Y/%m/%d %H-%M-%S", localtime)
+print(time1)
+
+# (3)获取前两天的时间
+# 使用datetime 模块
+import datetime
+now_time = datetime.datetime.now()
+print(now_time)
+
+yesterday = now_time + datetime.timedelta(days=-2)
+print(yesterday)
+
+formated_yesterday = yesterday.strftime("%Y-%m-%d %H:%M:%S")
+print(formated_yesterday)
