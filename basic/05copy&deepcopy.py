@@ -15,7 +15,7 @@ list1 = [a, b ,c]
 # python中，对象的赋值为 对象引用（内存地址）的传递
 list2 = list1
 # id() 获取变量在内存中的地址
-# 地址相同
+# list1 和 list2 地址相同，指向相同对象
 print(id(list1))
 print(list1)
 print([id(ele) for ele in list1])

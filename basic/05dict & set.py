@@ -9,7 +9,7 @@ This is a temporary script file.
 # key 唯一对应一个 value(1 对 1)
 # key 必须为不可变对象，如字符串等
 dict1 = {"geyang": 100, "bob": 99, "gavin": 95, 101:101}
-
+#print(dict1.items())
 # 访问字典
 print(dict1["geyang"])
 print(dict1[100])

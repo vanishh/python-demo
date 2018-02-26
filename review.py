@@ -19,9 +19,22 @@ print(str1[0])
 del(str1[0])
 
 list1 = [1, 2, 3]
+list1.append(4)
+list1.insert(0,3)
+result = list1.pop()
+del(list1[0])
+list1[0] = 4
 print(list1[:])
 print(list1[0])
-del(list1[0])
+
+set1 = {1, 2, 3, 1}
+print(set1)
+
+dict1 = {"name": "geyang", "age": 24}
+dict1["height"] = 173
+del(dict1["height"])
+dict1["height"] = 174
+result = dict1.get("heihgt")
 # 添加元素
 # 元组不可以被修改，包括添加元素，任何方法都不可以
 #tuple1[3] = 4 # 'tuple' object does not support item assignment
@@ -94,9 +107,12 @@ print(count(1))
 # 考试题2：一次性输入任意不少于5个数字（数字之间以逗号为界）保存在list中，
 # 对输入的数字进行排序，不准使用内置函数，封装成函数
 def sort_number():
-    input_str = input()
+    input_str = input("请输入不少于5个数字(格式：5,3,1,2)")
     number_list = input_str.split(",")
 #    print(number_list)
+    if len(number_list) < 5:
+        print("输入数字不能少于5个")
+        return
     number_list = [ int(index) for index in number_list]
     print("before sort:", number_list)
     # 冒泡排序
@@ -129,7 +145,7 @@ def slice_list():
     while True:
         if index == len(input_list):
             break
-        while input_list[index] == input_list[index+1]:
+        while (index != len(input_list) -2) and input_list[index] == input_list[index+1]:
             temp_list.append(input_list[index])
             index += 1
         temp_list.append(index)
@@ -141,7 +157,25 @@ slice_list()
 
 # 考试题4：写一个程序，可以任意输入文件名，打开该文件，如果文件不存在则创建该文件。
 # 然后输入内容，可重复输入追加到文件中。
+def write_file():
+    file_name = input("请输入文件名：")
+    # 打开文件
+    try:
+        # "E:\workspace_python\README.md"
+        f = open(file_name, 'a+')
+        while True:
+            input_str = input()
+            if input_str == '#':
+                print(f.read())
+                break
+            else:
+                f.write(input_str)
+    except FileNotFoundError:
+        print("没有这个文件！")
+    finally:
+        f.close()
 
+write_file()       
 # 考试题5：计算年龄
 #f(1) = 10 f(2) = f(1) + 2 f(3) = f(2) + 2
 def count_age(number):
@@ -206,25 +240,60 @@ class Class(object):
     def __init__(self, person_number):
         Class.__person_number = person_number
     
-    def increase_person_number(self):
-        pass
+    def increase(self):
+        Class.__person_number += 1
     
     def get_peson_number(self):
+        print("班级总人数为:%d" % Class.__person_number)
         return Class.__person_number
-    
+#class1 = Class(10)
+#print(class1.get_peson_number())
+#class1.increase()
+#print(class1.get_peson_number())
 class Student(Class):
     
-    def __init__(self, name, age, score):
+    def __init__(self, name, age, score, myClass):
         self.name = name
         self.age = age
         self.score = score
+        myClass.increase()
         
     def get_name(self):
+        print("大家好我叫%s" % self.name)
         return self.name
     
     def get_age(self):
-        return self.age
+        print("姓名：%s年龄：%d" % (self.name, self.age))
+        return self.name,self.age
     
     def get_score(self, class_name):
         if class_name in self.score:
-            return "%d:%d" % (class_name, self.score[class_name])
+            print("这是我的%s:%d" % (class_name, self.score[class_name]))
+        return class_name, self.score[class_name]
+
+    def get_best_score(self):
+        max_score = 0
+        course = ""
+        for k,v in self.score.items():
+            if v > max_score:
+                max_score = v
+                course = k
+        print("我最好的成绩是%s:%d" % (course, max_score))
+        return max_score, course
+
+class1 = Class(0)
+joe = Student("joe", 20, {"语文":69, "数学": 70, "英语": 100}, class1)
+joe.get_name()
+joe.get_age()
+joe.get_score("语文")
+joe.get_best_score()
+print('-' * 20)
+susan = Student("susan", 20, {"语文": 99, "数学": 100, "英语":79}, class1)
+susan.get_name()
+susan.get_age()
+susan.get_score("语文")
+susan.get_best_score()
+print('-' * 20)
+class1.get_peson_number()
+
+12
