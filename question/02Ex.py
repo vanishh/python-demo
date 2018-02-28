@@ -93,3 +93,16 @@ for index in range(10000, 100000):
 
 print(list3)
 '''
+# 求奇数分之一序数前N项和
+# 定义第n项的表达式函数
+# 1/1 1/3 1/5 分母为等差数列an = a1 + 2(n-1)
+def expression(n):
+    return 1 / (1 + 2 * (n - 1))
+
+def sum_odd(n):
+    result = 0
+    for index in range(1, n+1):
+        result += expression(index)
+    return result
+
+print("%.6f" % sum_odd(23))

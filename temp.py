@@ -22,3 +22,4 @@ def countOff(n, m, out):
         out[location] = index
     print(out)
 countOff(11, 3, [])
+
