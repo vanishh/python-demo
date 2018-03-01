@@ -91,15 +91,17 @@ result = list2.sort() # sort()方法没有返回值,直接对list进行排序
 print(list2)
 print(list2[-1])
 
-#考试题1 小明和女朋友买士力架吃，每天小明吃1个，女朋友吃半个，
+#考试题1 小明和女朋友买士力架吃，先是女朋友吃所有的一般，小明吃1个，
+# 第二天，女朋友吃了一般，小明还是吃1个，这样一直吃下去，
 # 直到第6天时，剩下1个。问小明买了几个?
-# 分析：count(6) = 1 count(5) = count(6) + 1.5 求count(1)
-# count(n) = count(n + 1) + 1.5
+# 分析：
+#count(6) = count(5) // 2 - 1  = 1
+#count(5) = (count(6) + 1 ) * 2 
 def count(day):
     if day == 6:
         return 1
     else:
-        return count(day + 1) + 1.5
+        return (count(day + 1) + 1) * 2
 
 
 print(count(1))
@@ -296,4 +298,3 @@ susan.get_best_score()
 print('-' * 20)
 class1.get_peson_number()
 
-12
