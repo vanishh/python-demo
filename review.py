@@ -139,21 +139,24 @@ sort_number()
 # 考试3：切割列表元素，如果相邻元素相同，则切割存放在一起，不同则单独切割
 # 封装为函数
 def slice_list():
-    temp_list = []
     result_list = []
     index = 0
     input_list = [1, 1, 0, 2, 2, 2, 4, 3, 3, 4, 2, 0, 0]
 
     while True:
-        if index == len(input_list):
-            break
-        while (index != len(input_list) -2) and input_list[index] == input_list[index+1]:
-            temp_list.append(input_list[index])
+#        if index == len(input_list):
+#            break
+        temp_list = list()
+        temp_list.append(input_list[index])
+        while input_list[index] == input_list[index+1]:
+            temp_list.append(input_list[index+1])
             index += 1
-        temp_list.append(index)
+            if index == (len(input_list) - 1):
+                result_list.append(temp_list)
+                print(result_list)
+                return
         result_list.append(temp_list)
         index += 1
-    
     
 slice_list()
 
