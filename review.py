@@ -27,7 +27,9 @@ list1[0] = 4
 print(list1[:])
 print(list1[0])
 
-set1 = {1, 2, 3, 1}
+set1 = {1, 2, 3}
+set1.add(5)
+print(set1.pop())
 print(set1)
 
 dict1 = {"name": "geyang", "age": 24}
