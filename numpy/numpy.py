@@ -43,14 +43,28 @@ print("linspace:", linspace)
 
 # np.logspace() 返回一个ndarray对象
 # np.zeros 默认为float类型
-zeros = np.zeros(5, dtype = np.int)
-print("zeros:", zeros)
-
 zeros1 = np.zeros(5)
 print("zeros:", zeros1)
 
+zeros = np.zeros(5, dtype = np.int)
+print("zeros:", zeros)
+
+zeros2 = np.zeros((3,2))  # 创建三行两列
+print(zeros2)
+
+zeros3 = np.zeros((2,2,3))
+print(zeros3)
+
 onesArray = np.ones(5)
 print("ones:", onesArray)
+
+# np.logspace(base ** start, base ** stop, num数组要生成的个数)
+logspace = np.logspace(0,2,5)
+print(logspace)
+
+# np.random.random(shape)
+random = np.random.random((3,2,3))
+print(random)
 
 # 使用现有数据创建数组
 asArray = np.asarray([1,2,3,4], dtype = np.float)
@@ -75,7 +89,9 @@ print(arange.itemsize)
 arange1 = arange.reshape(2,4,3)
 print(arange1)
 
-
+# 切片 和索引
+# ndarray 对象的内容可以通过索引或者切片来访问和修改
+np.arrange(10)
 
 
 
