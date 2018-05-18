@@ -30,3 +30,33 @@ def f2(param_list, x, n):
     return result
 param_list = [1,2,3,4,5]
 print(f2(param_list, 1, 4))
+
+# 最大子序列和
+# 给定N个整数的序列{A1,A2,A3...An},求函数
+# f(i,j)=max{0, 求和Ak(i,j)}的最大值
+# 从Ai到Aj连续的一段子列的和
+# 方法1：穷举法O(n**3)
+def maxSubseqSum1(list1, n):
+    maxSum = 0
+    for i in range(n):      # i 是子列的左端位置
+        for j in range(i,n):  # j 是子列的右端位置
+            thisSum = 0     # A[i]到A[j]的子列和
+            for k in range(i,j+1):
+                thisSum += list1[k]
+                if thisSum > maxSum:
+                    maxSum = thisSum
+    return maxSum
+
+# 方法2：O(n**2)
+def maxSubseqSum2(list1, n):
+    maxSum = 0
+    for i in range(n):
+        thisSum = 0
+        for j in range(i,n):
+            thisSum += list1[j]
+            if thisSum > maxSum:
+                maxSum = thisSum
+    return maxSum
+
+# 方法三：分而治之
+# 把大问题拆成小块，然后再合并结果
