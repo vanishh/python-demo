@@ -24,3 +24,17 @@ model.fit(data_x, data_y)
 print(model.predict(data_x[:4,:]))
 print(data_y[:4])
 
+# 使用KNN进行实例操作
+from sklearn import neighbors
+from sklearn import datasets
+# 加载数据
+iris = datasets.load_iris()
+print(iris)
+# 创建KNN模型
+knn = neighbors.KNeighborsClassifier()
+# fit
+knn.fit(iris.data, iris.target)
+# 预测
+predictedLabel = knn.predict([[0.1,0.2,0.3,0.4]])
+print(predictedLabel)
+#

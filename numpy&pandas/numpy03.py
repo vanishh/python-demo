@@ -38,3 +38,6 @@ print("数组点积:", np.dot(a,b)) # 返回两个数组的点积，对于二维
 print("向量点积：", np.vdot(a,b))
 # np.inner ：返回一维数组的向量内积
 print("向量内积：", np.inner(np.array([1,2,3]), np.array([0,1,0])))
+
+# numpy.linalg.solve()函数给出矩阵形式线性方程组的解
+# numpy.linlg.inv() 计算矩阵的逆
