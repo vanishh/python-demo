@@ -42,4 +42,29 @@ b = np.array([1.232, 5.55, 1213, 0.567])
 print(np.around(b, decimals = 2))
 
 
-# numpy
+# numpy 算术运算
+import numpy as np
+inputArray1 = np.arange(9, dtype= np.float).reshape(3,3)
+print("第一个数组：", inputArray1)
+
+inputArray2 = np.array([10,10,10])
+print("第二个数组：", inputArray2)
+# add subtract multiply divide
+print(np.add(inputArray1, inputArray2))  # 广播机制
+print(np.subtract(inputArray1, inputArray2))
+
+# 返回元素的倒数
+# np.reciprocal()
+
+# numpy 统计函数
+# np.amin() np.amax() 从数组中给定的元素中查找最小、最大值
+
+# numpy percentile()
+#百分位数是统计中使用的度量，表示小于这个值得观察值占某个百分比。 函数numpy.percentile()接受以下参数。
+#
+#numpy.percentile(a, q, axis)
+
+# numpy.median() 中值
+# numpy.mean() 数组的算术平均数
+# numpy.average() 加权平均值
+# numpy.std()    标准差**2 = 方差 numpy.var()
